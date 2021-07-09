@@ -1,3 +1,6 @@
+
+Terminal commands:
+
 ls
 npm init -y
 create app.js

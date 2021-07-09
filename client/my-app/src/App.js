@@ -2,6 +2,9 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {Hello} from './components/index'
+const name = document.getElementByUd('name')
+const form = document.getElementById('form')
+const errorElement = document.getElementById('error')
 
 class App extends React.Component{
 constructor(props) {
@@ -11,12 +14,21 @@ constructor(props) {
     WikiSearchTerms: ''
   }
 }
+
+
+
 useWikiSearchEngine = (e) => {
   e.preventDefault();
 
   this.setState({
     wikiSearchReruenValues: []
-  });
+
+//    if(messages.value.length <= 40) {
+//      messages.push (' request cant be longer than 40 characters ')
+//    }
+   
+
+  })
 
   const pointerToThis = this;
   var url= "https://en.wikipedia.org/w/api.php";
@@ -106,14 +118,41 @@ return (
   <div className="App">
     <h1>Wikipedia Search Engine</h1>
     <form action="">
-      <input type="text" value={this.state.WikiSearchTerms || ''} onChange={this.changeWikiSearchTerms} placeholder='Search Wikipedia Articles' />
-      <button type='submit' onClick={this.useWikiSearchEngine}>Search</button>
+      <input type="text" 
+      
+      form name="myForm" id="myForm"
+      
+      value={this.state.WikiSearchTerms || ''} onChange={this.changeWikiSearchTerms} placeholder='Search Wikipedia Articles' />
+      <button type='submit' onClick={this.useWikiSearchEngine}>Search</button> 
     </form>
     {wikiSearchResults}
+    
   </div>
+  
 );
 }
 }
+
+function validateForm(formId)
+    {
+        var inputs, index;
+        var form=document.getElementById(formId);
+        inputs = form.getElementsByTagName('input');
+        for (index = 0; index < inputs.length; ++index) {
+            if (inputs[index].value==null || inputs[index].value=="" || inputs[index].value.length > 40 ) {
+              alert("Characters must br up to 40!");
+              return false;
+          }
+        }
+    }
+
+
+
+//    if(messages.value.length <= 40) {
+//      messages.push (' request cant be longer than 40 characters ')
+//    }
+
+
 //function App() {
 //  return (
 //    <div className="App">

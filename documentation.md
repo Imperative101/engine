@@ -1,4 +1,6 @@
 
+How to build webpage with react and node js.
+
 Terminal commands:
 
 ls
@@ -10,7 +12,7 @@ npm i nodemon --save
 mkdir views routes controlles  // create folders
 npm i ejs --save
 views => hello.ejs //to write html
-
+l
 mkdir client
 ls
 npx create-react-app my-app
